@@ -13,7 +13,7 @@ import { useRef, useState } from "react";
 
 const ChatRoom = () => {
   const messagesRef = collection(db, "messages");
-  const q = query(messagesRef, orderBy("createdAt"), limit(25));
+  const q = query(messagesRef, orderBy("createdAt"), limit(2000));
   const [messages] = useCollectionData(q, { idField: "id" });
   const [formValue, setFormValue] = useState("");
   const sendMessage = async (e) => {
@@ -36,7 +36,7 @@ const ChatRoom = () => {
   const dummy = useRef();
   return (
     <>
-      <div>
+      <main>
         {messages &&
           messages.map((msg, id) => (
             <ChatMessage
@@ -47,7 +47,7 @@ const ChatRoom = () => {
             />
           ))}
         <div ref={dummy}></div>
-      </div>
+      </main>
       <form onSubmit={sendMessage}>
         <input
           type="text"

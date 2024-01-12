@@ -1,6 +1,7 @@
 import "./App.css";
 import ChatRoom from "./components/ChatRoom";
 import SignIn from "./components/SignIn";
+import SignOut from "./components/SignOut";
 import { auth } from "./config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -9,7 +10,10 @@ function App() {
   return (
     <>
       <div className="app">
-        <header></header>
+        <header>
+          <h1>Global Chat</h1>
+          <SignOut/>
+        </header>
         <section>{user ? <ChatRoom /> : <SignIn />}</section>
       </div>
     </>
