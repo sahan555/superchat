@@ -12,7 +12,7 @@ const SignIn = () => {
         console.error("Error signing in with Google:", error.message);
       });
   };
-  return <button onClick={signInWithGoogle}>Sign in with Google</button>;
+  return <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>;
 };
 
 export default SignIn;
