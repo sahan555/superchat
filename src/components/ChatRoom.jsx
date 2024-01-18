@@ -9,7 +9,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import ChatMessage from "./ChatMessage";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const ChatRoom = () => {
   const messagesRef = collection(db, "messages");
@@ -34,6 +34,10 @@ const ChatRoom = () => {
     }
   };
   const dummy = useRef();
+  useEffect(() => {
+    // This effect will be triggered whenever renderCount changes
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
   return (
     <>
       <main>
