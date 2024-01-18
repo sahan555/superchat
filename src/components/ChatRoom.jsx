@@ -28,7 +28,7 @@ const ChatRoom = () => {
       });
 
       setFormValue("");
-      dummy.current.scrollIntoView({behavior:'smooth'});
+      dummy.current.scrollIntoView({ behavior: "smooth" });
     } catch (error) {
       console.error("Error sending message:", error.message);
     }
@@ -39,14 +39,16 @@ const ChatRoom = () => {
       <main>
         {messages &&
           messages.map((msg, id) => (
-            <ChatMessage
-              key={id}
-              text={msg.text}
-              uid={msg.uid}
-              photoURL={msg.photoURL}
-            />
+            <>
+              <ChatMessage
+                key={id}
+                text={msg.text}
+                uid={msg.uid}
+                photoURL={msg.photoURL}
+              />
+              <div ref={dummy}></div>
+            </>
           ))}
-        <div ref={dummy}></div>
       </main>
       <form onSubmit={sendMessage}>
         <input
