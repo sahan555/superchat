@@ -35,8 +35,9 @@ const ChatRoom = () => {
   };
   const dummy = useRef();
   useEffect(() => {
-    // This effect will be triggered whenever renderCount changes
-    dummy.current.scrollIntoView({ behavior: 'smooth' });
+    if (dummy.current) {
+      dummy.current.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [messages]);
   return (
     <>
